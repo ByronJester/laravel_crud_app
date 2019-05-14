@@ -57,36 +57,23 @@
 	    <div class="navbar-header">
 	      <a class="navbar-brand" href="#">WebSiteName</a>
 	    </div>
-	    <ul class="nav navbar-nav">
-	      <li class="active"><a href="#">Home</a></li>
-	      <li class="dropdown">
-	        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
-	        <span class="caret"></span></a>
-	        <ul class="dropdown-menu">
-	          <li><a href="#">Page 1-1</a></li>
-	          <li><a href="#">Page 1-2</a></li>
-	          <li><a href="#">Page 1-3</a></li>
-	        </ul>
-	      </li>
-	      <li><a href="#">Page 2</a></li>
-	      <li><a href="#">Page 3</a></li>
-	    </ul>
 	  </div>
 	</nav>
 
 	<div class = "container-fluid" style="margin-top: 5%;">
-
-		<div class="col-md-2">
-			<div class="sidebar">
-			  <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
-			  <a href="#services"><i class="fa fa-fw fa-wrench"></i> Services</a>
-			  <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
-			  <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+		<div class="row" >
+			<div class="col-md-2">
+				<div class="sidebar">
+				  <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
+				  <a href="#services"><i class="fa fa-fw fa-wrench"></i> Services</a>
+				  <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
+				  <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+				</div>
 			</div>
-		</div>
 
-		<div class="col-md-10">
-			@yield('body')
+			<div class="col-md-10">
+				@yield('body')
+			</div>
 		</div>
 		
 	</div>

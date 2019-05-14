@@ -1,25 +1,53 @@
 <template>
 	<div class = "container-fluid">
 		<div class = "row">
-			<div class = "col-md-6">
-				<div class = "well well-sm" v-for = "user in users">
-					<h1>Hello {{user.first_name}}</h1>
-					<button class = "btn btn-primary" data-toggle="modal" data-target="#myProfile" v-on:click.prevent = "viewProfile(user.applicants_id)">
-						<span  class = "glyphicon glyphicon-eye-open"></span>
-					</button>
-					<button class = "btn btn-danger"  v-on:click.prevent = "deleteAccount(user.applicants_id)">
-						<span  class = "glyphicon glyphicon-remove"></span>
-					</button>
-				</div>
-			</div>
 
+			<div class = "col-md-12">
+				<!-- ADD USER BUTTON -->
+				<button class = "btn btn-success" data-toggle="modal" data-target="#add_user">
+					<span  class = "fa fa-user-plus fa-lg"></span>
+				</button>
+				<!--  -->
+				<!-- USER TABLE -->
+				<table>
+					<tr>
+						<th>Username</th>
+			      <th>Full Name</th>
+			      <th>Email</th>
+			      <th>Mobile No.</th>
+			      <th>Action</th>
+					</tr>
+					<tr v-for= "user in users">
+						<td>@{{user.username}}</td>
+						<td>{{user.first_name}} {{user.middle_name}} {{user.last_name}}</td>
+						<td>{{user.email}}</td>
+						<td>{{user.mobile}}</td>
+						<td>
+							<button class = "btn btn-primary" data-toggle="modal" data-target="#myProfile" v-on:click.prevent = "viewProfile(user.applicants_id)">
+								<span  class = "glyphicon glyphicon-eye-open"></span>
+							</button>
+							<button class = "btn btn-danger"  v-on:click.prevent = "deleteAccount(user.applicants_id)">
+								<span  class = "glyphicon glyphicon-remove"></span>
+							</button>
+						</td>
+					</tr>
+				</table>
+				<!--  -->
+			</div>
+			
+
+			<!-- EDIT ACCOUNT MODAL -->
 			<div class="modal fade" id="myProfile" tabindex="-1" role="dialog" >
 			  <div class="modal-dialog">
 			    <div class="modal-content">
 			    	<div class="row">
 							<div class="col-sm-12">
-					      <div class="modal-header">
-					        <h5 class="modal-title">PROFILE</h5>
+					      <div class="modal-header upd-acc">
+					      	<button type="button fa fa-user-plus fa-lg" class="close" data-dismiss="modal">
+					      		<span class="fa fa-times-circle">
+				        		</span>
+					      	</button>
+					        <h5 class="modal-title">PROFILE</h5> 
 					      </div>
 					    </div>
 					  </div> 
@@ -67,7 +95,7 @@
 
 			     	<div class="row">
 							<div class="col-sm-12">
-					      <div class="modal-footer">
+					      <div class="modal-footer upd-acc">
 					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					      </div>
 					    </div>
@@ -76,21 +104,75 @@
 			    </div>
 			  </div>
 			</div>
+			<!-- END OF EDIT ACCOUNT MODAL -->
 
-			<div class="col-md-6">
-				<div class="well well-sm" style="text-align: center;">
-					<h1>CREATE ACCOUNT</h1>
-				</div>
-				<div class="well well-sm">
-					<input type="text" class="form-control" name="" v-model ="c_user.u_name"  placeholder="Username" required>
-					<input type="password" class="form-control" name=""   v-model ="c_user.p_word" placeholder="Password" required>
-					<input type="text" class="form-control" name=""  v-model ="c_user.f_name" placeholder="First Name" required>
-					<input type="text" class="form-control" name=""   v-model ="c_user.m_name" placeholder="Middle Name" required>
-					<input type="text" class="form-control" name=""   v-model ="c_user.l_name" placeholder="Last Name" required>
-					<input type="text" class="form-control" name=""  v-model ="c_user.email" placeholder="Email" required>
-					<input type="text" class="form-control" name=""   v-model ="c_user.mobile"placeholder="Mobile #" required>
-					<input type="submit" class="btn btn-primary"  value = "CREATE ACCOUNT" required style="width: 100%;" v-on:click.prevent = "createAccount">
-				</div>
+			<!-- ADD ACCOUNT MODAL -->
+			<div class="modal fade" id="add_user" tabindex="-1" role="dialog" >
+			  <div class="modal-dialog">
+			    <div class="modal-content">
+			    	<div class="row">
+							<div class="col-sm-12">
+					      <div class="modal-header add-acc">
+					      	<button type="button fa fa-user-plus fa-lg" class="close" data-dismiss="modal">
+					      		<span class="fa fa-times-circle">
+				        		</span>
+					      	</button>
+					        <h5 class="modal-title">ADD ACCOUNT</h5> 
+					      </div>
+					    </div>
+					  </div> 
+
+					  <div class="row" >
+				      <div class="col-sm-12" >
+					      <div class="modal-body" >
+					      	<div class="col-xs-6" >
+						      	<div class="well well-sm well_text">
+						        	<input type="text" class="form-control" name="" v-model ="c_user.u_name"  placeholder="Username" required>
+						        </div>
+						        <div class="well well-sm well_text">
+						        	<input type="password" class="form-control" name=""   v-model ="c_user.p_word" placeholder="Password" required>
+						        </div>
+						        <div class="well well-sm well_text">
+						        	<input type="password" class="form-control" name=""   v-model ="c_user.cpword" placeholder="Confirm Password" required>
+						        </div>
+						        <div class="well well-sm well_text">
+						        	<input type="text" class="form-control" name=""  v-model ="c_user.f_name" placeholder="First Name" required>
+						        </div>
+						      </div>
+
+						      <div class="col-xs-6">
+						      	<div class="well well-sm well_text">
+						        	<input type="text" class="form-control" name=""   v-model ="c_user.m_name" placeholder="Middle Name" required>
+						        </div>
+						        <div class="well well-sm well_text">
+						        	<input type="text" class="form-control" name=""   v-model ="c_user.l_name" placeholder="Last Name" required>
+						        </div>
+						        <div class="well well-sm well_text">
+						        	<input type="text" class="form-control" name=""  v-model ="c_user.email" placeholder="Email" required>
+						        </div>
+						        <div class="well well-sm well_text">
+						        	<input type="text" class="form-control" name=""   v-model ="c_user.mobile"placeholder="Mobile #" required>
+					        	</div>
+					        </div>
+					      </div>
+				     	</div>
+				    </div>
+
+			     	<div class="row">
+							<div class="col-sm-12">
+					      <div class="modal-footer add-acc">
+					      	<button type="button" class="btn btn-default" v-on:click.prevent = "createAccount()">
+					      		<span class="fa fa-user-plus fa-lg">
+				        			CREATE
+				        		</span>
+					      	</button>
+					        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+					      </div>
+					    </div>
+					  </div>
+
+			    </div>
+			  </div>
 			</div>
 
 		</div>
@@ -116,6 +198,7 @@ export default {
 			c_user			: {
 				u_name: '',
 				p_word: '',
+				cpword: '',
 				f_name: '',
 				m_name: '',
 				l_name: '',
@@ -215,12 +298,14 @@ export default {
   		var user_data = {
   			'un': this.c_user.u_name,
   			'pw': this.c_user.p_word,
+  			'cp': this.c_user.cpword,
   			'fn': this.c_user.f_name,
   			'mn': this.c_user.m_name,
   			'ln': this.c_user.l_name,
   			'em': this.c_user.email,
   			'pn': this.c_user.mobile
   		}
+
   		axios({
   			method: 'POST',
   			url: '/api/profile',
@@ -354,13 +439,13 @@ export default {
 		font-size: 12px;
 	}
 
-	.modal-header {
-		background-color: #ff6b6b;
+	.upd-acc {
+		background-color: #00a8ff;
 		color: white;
 	}
 
-	.modal-footer {
-		background-color: #ff6b6b;
+	.add-acc{
+		background-color: #00b894;
 		color: white;
 	}
 
@@ -368,4 +453,31 @@ export default {
 		background-color: #c8d6e5;
 	}
 
+	table {
+		margin-top: 5px;
+  	width: 100%;
+	}
+
+	table, th, td {
+	  border: 1px solid black;
+	  border-collapse: collapse;
+	}
+
+	th, td {
+	  padding-top: 5px;
+	  padding-bottom: 5px;
+	  text-align: center;
+	}
+
+	th {
+	  background-color: #60a3bc;
+	}
+
+	td {
+	  background-color: #f1f2f6;
+	}
+
+	.fa-times-circle{
+		color: red;
+	}
 </style>

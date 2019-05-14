@@ -44567,7 +44567,7 @@ exports = module.exports = __webpack_require__(42)(false);
 
 
 // module
-exports.push([module.i, "\n.well-sm {\n\tmargin-top: 5px;\n\tpadding-top: 0px !important;\n\tpadding-bottom:  0px !important;\n}\n.btn {\n\tmargin-top: 5px;\n\tmargin-bottom: 5px;\n}\n.modal-title{\n\ttext-align: center;\n\tfont-size: 24px;\n\tfont-weight: bold;\n}\n.form-control{\n\ttext-align: center;\n\tmargin-top: 10px;\n\tmargin-bottom: 10px;\n\twidth: 100%;\n\theight: 40px;\n\tfont-size: 12px;\n}\n.modal-header {\n\tbackground-color: #ff6b6b;\n\tcolor: white;\n}\n.modal-footer {\n\tbackground-color: #ff6b6b;\n\tcolor: white;\n}\n.btn-default{\n\tbackground-color: #c8d6e5;\n}\n\n", ""]);
+exports.push([module.i, "\n.well-sm {\n\t\tmargin-top: 5px;\n\t\tpadding-top: 0px !important;\n\t\tpadding-bottom:  0px !important;\n}\n.btn {\n\t\tmargin-top: 5px;\n\t\tmargin-bottom: 5px;\n}\n.modal-title{\n\t\ttext-align: center;\n\t\tfont-size: 24px;\n\t\tfont-weight: bold;\n}\n.form-control{\n\t\ttext-align: center;\n\t\tmargin-top: 10px;\n\t\tmargin-bottom: 10px;\n\t\twidth: 100%;\n\t\theight: 40px;\n\t\tfont-size: 12px;\n}\n.upd-acc {\n\t\tbackground-color: #00a8ff;\n\t\tcolor: white;\n}\n.add-acc{\n\t\tbackground-color: #00b894;\n\t\tcolor: white;\n}\n.btn-default{\n\t\tbackground-color: #c8d6e5;\n}\ntable {\n\t\tmargin-top: 5px;\n  \twidth: 100%;\n}\ntable, th, td {\n\t  border: 1px solid black;\n\t  border-collapse: collapse;\n}\nth, td {\n\t  padding-top: 5px;\n\t  padding-bottom: 5px;\n\t  text-align: center;\n}\nth {\n\t  background-color: #60a3bc;\n}\ntd {\n\t  background-color: #f1f2f6;\n}\n.fa-times-circle{\n\t\tcolor: red;\n}\n", ""]);
 
 // exports
 
@@ -45129,6 +45129,88 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -45148,6 +45230,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			c_user: {
 				u_name: '',
 				p_word: '',
+				cpword: '',
 				f_name: '',
 				m_name: '',
 				l_name: '',
@@ -45239,12 +45322,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			var user_data = {
 				'un': this.c_user.u_name,
 				'pw': this.c_user.p_word,
+				'cp': this.c_user.cpword,
 				'fn': this.c_user.f_name,
 				'mn': this.c_user.m_name,
 				'ln': this.c_user.l_name,
 				'em': this.c_user.email,
 				'pn': this.c_user.mobile
 			};
+
 			axios({
 				method: 'POST',
 				url: '/api/profile',
@@ -45342,45 +45427,75 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid" }, [
     _c("div", { staticClass: "row" }, [
-      _c(
-        "div",
-        { staticClass: "col-md-6" },
-        _vm._l(_vm.users, function(user) {
-          return _c("div", { staticClass: "well well-sm" }, [
-            _c("h1", [_vm._v("Hello " + _vm._s(user.first_name))]),
+      _c("div", { staticClass: "col-md-12" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "table",
+          [
+            _vm._m(1),
             _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary",
-                attrs: { "data-toggle": "modal", "data-target": "#myProfile" },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    return _vm.viewProfile(user.applicants_id)
-                  }
-                }
-              },
-              [_c("span", { staticClass: "glyphicon glyphicon-eye-open" })]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-danger",
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    return _vm.deleteAccount(user.applicants_id)
-                  }
-                }
-              },
-              [_c("span", { staticClass: "glyphicon glyphicon-remove" })]
-            )
-          ])
-        }),
-        0
-      ),
+            _vm._l(_vm.users, function(user) {
+              return _c("tr", [
+                _c("td", [_vm._v("@" + _vm._s(user.username))]),
+                _vm._v(" "),
+                _c("td", [
+                  _vm._v(
+                    _vm._s(user.first_name) +
+                      " " +
+                      _vm._s(user.middle_name) +
+                      " " +
+                      _vm._s(user.last_name)
+                  )
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(user.email))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(user.mobile))]),
+                _vm._v(" "),
+                _c("td", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: {
+                        "data-toggle": "modal",
+                        "data-target": "#myProfile"
+                      },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.viewProfile(user.applicants_id)
+                        }
+                      }
+                    },
+                    [
+                      _c("span", {
+                        staticClass: "glyphicon glyphicon-eye-open"
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.deleteAccount(user.applicants_id)
+                        }
+                      }
+                    },
+                    [_c("span", { staticClass: "glyphicon glyphicon-remove" })]
+                  )
+                ])
+              ])
+            })
+          ],
+          2
+        )
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -45391,7 +45506,7 @@ var render = function() {
         [
           _c("div", { staticClass: "modal-dialog" }, [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(0),
+              _vm._m(2),
               _vm._v(" "),
               _c("div", { staticClass: "row" }, [
                 _c("div", { staticClass: "col-sm-12" }, [
@@ -45660,218 +45775,323 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(1)
+              _vm._m(3)
             ])
           ])
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-6" }, [
-        _vm._m(2),
-        _vm._v(" "),
-        _c("div", { staticClass: "well well-sm" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.c_user.u_name,
-                expression: "c_user.u_name"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              name: "",
-              placeholder: "Username",
-              required: ""
-            },
-            domProps: { value: _vm.c_user.u_name },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.c_user, "u_name", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.c_user.p_word,
-                expression: "c_user.p_word"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "password",
-              name: "",
-              placeholder: "Password",
-              required: ""
-            },
-            domProps: { value: _vm.c_user.p_word },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.c_user, "p_word", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.c_user.f_name,
-                expression: "c_user.f_name"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              name: "",
-              placeholder: "First Name",
-              required: ""
-            },
-            domProps: { value: _vm.c_user.f_name },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.c_user, "f_name", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.c_user.m_name,
-                expression: "c_user.m_name"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              name: "",
-              placeholder: "Middle Name",
-              required: ""
-            },
-            domProps: { value: _vm.c_user.m_name },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.c_user, "m_name", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.c_user.l_name,
-                expression: "c_user.l_name"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              name: "",
-              placeholder: "Last Name",
-              required: ""
-            },
-            domProps: { value: _vm.c_user.l_name },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.c_user, "l_name", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.c_user.email,
-                expression: "c_user.email"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              name: "",
-              placeholder: "Email",
-              required: ""
-            },
-            domProps: { value: _vm.c_user.email },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.c_user, "email", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.c_user.mobile,
-                expression: "c_user.mobile"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              type: "text",
-              name: "",
-              placeholder: "Mobile #",
-              required: ""
-            },
-            domProps: { value: _vm.c_user.mobile },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.c_user, "mobile", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "btn btn-primary",
-            staticStyle: { width: "100%" },
-            attrs: { type: "submit", value: "CREATE ACCOUNT", required: "" },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                return _vm.createAccount($event)
-              }
-            }
-          })
-        ])
-      ])
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: { id: "add_user", tabindex: "-1", role: "dialog" }
+        },
+        [
+          _c("div", { staticClass: "modal-dialog" }, [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(4),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-sm-12" }, [
+                  _c("div", { staticClass: "modal-body" }, [
+                    _c("div", { staticClass: "col-xs-6" }, [
+                      _c("div", { staticClass: "well well-sm well_text" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.c_user.u_name,
+                              expression: "c_user.u_name"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            name: "",
+                            placeholder: "Username",
+                            required: ""
+                          },
+                          domProps: { value: _vm.c_user.u_name },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.c_user,
+                                "u_name",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "well well-sm well_text" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.c_user.p_word,
+                              expression: "c_user.p_word"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "password",
+                            name: "",
+                            placeholder: "Password",
+                            required: ""
+                          },
+                          domProps: { value: _vm.c_user.p_word },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.c_user,
+                                "p_word",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "well well-sm well_text" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.c_user.cpword,
+                              expression: "c_user.cpword"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "password",
+                            name: "",
+                            placeholder: "Confirm Password",
+                            required: ""
+                          },
+                          domProps: { value: _vm.c_user.cpword },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.c_user,
+                                "cpword",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "well well-sm well_text" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.c_user.f_name,
+                              expression: "c_user.f_name"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            name: "",
+                            placeholder: "First Name",
+                            required: ""
+                          },
+                          domProps: { value: _vm.c_user.f_name },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.c_user,
+                                "f_name",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-xs-6" }, [
+                      _c("div", { staticClass: "well well-sm well_text" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.c_user.m_name,
+                              expression: "c_user.m_name"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            name: "",
+                            placeholder: "Middle Name",
+                            required: ""
+                          },
+                          domProps: { value: _vm.c_user.m_name },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.c_user,
+                                "m_name",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "well well-sm well_text" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.c_user.l_name,
+                              expression: "c_user.l_name"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            name: "",
+                            placeholder: "Last Name",
+                            required: ""
+                          },
+                          domProps: { value: _vm.c_user.l_name },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.c_user,
+                                "l_name",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "well well-sm well_text" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.c_user.email,
+                              expression: "c_user.email"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            name: "",
+                            placeholder: "Email",
+                            required: ""
+                          },
+                          domProps: { value: _vm.c_user.email },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.c_user, "email", $event.target.value)
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "well well-sm well_text" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.c_user.mobile,
+                              expression: "c_user.mobile"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            name: "",
+                            placeholder: "Mobile #",
+                            required: ""
+                          },
+                          domProps: { value: _vm.c_user.mobile },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.c_user,
+                                "mobile",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-sm-12" }, [
+                  _c("div", { staticClass: "modal-footer add-acc" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-default",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.createAccount()
+                          }
+                        }
+                      },
+                      [
+                        _c("span", { staticClass: "fa fa-user-plus fa-lg" }, [
+                          _vm._v(
+                            "\n\t\t\t        \t\t\tCREATE\n\t\t\t        \t\t"
+                          )
+                        ])
+                      ]
+                    )
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ]
+      )
     ])
   ])
 }
@@ -45880,9 +46100,50 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-success",
+        attrs: { "data-toggle": "modal", "data-target": "#add_user" }
+      },
+      [_c("span", { staticClass: "fa fa-user-plus fa-lg" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [
+      _c("th", [_vm._v("Username")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Full Name")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Email")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Mobile No.")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Action")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-sm-12" }, [
-        _c("div", { staticClass: "modal-header" }, [
+        _c("div", { staticClass: "modal-header upd-acc" }, [
+          _c(
+            "button",
+            {
+              staticClass: "close",
+              attrs: {
+                type: "button fa fa-user-plus fa-lg",
+                "data-dismiss": "modal"
+              }
+            },
+            [_c("span", { staticClass: "fa fa-times-circle" })]
+          ),
+          _vm._v(" "),
           _c("h5", { staticClass: "modal-title" }, [_vm._v("PROFILE")])
         ])
       ])
@@ -45894,7 +46155,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-sm-12" }, [
-        _c("div", { staticClass: "modal-footer" }, [
+        _c("div", { staticClass: "modal-footer upd-acc" }, [
           _c(
             "button",
             {
@@ -45911,11 +46172,25 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "well well-sm", staticStyle: { "text-align": "center" } },
-      [_c("h1", [_vm._v("CREATE ACCOUNT")])]
-    )
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm-12" }, [
+        _c("div", { staticClass: "modal-header add-acc" }, [
+          _c(
+            "button",
+            {
+              staticClass: "close",
+              attrs: {
+                type: "button fa fa-user-plus fa-lg",
+                "data-dismiss": "modal"
+              }
+            },
+            [_c("span", { staticClass: "fa fa-times-circle" })]
+          ),
+          _vm._v(" "),
+          _c("h5", { staticClass: "modal-title" }, [_vm._v("ADD ACCOUNT")])
+        ])
+      ])
+    ])
   }
 ]
 render._withStripped = true

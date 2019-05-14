@@ -34,7 +34,7 @@ class UsersManagementModel extends Model {
   public static function deleteUser($id){
   	$has_deleted = DB::delete("DELETE FROM applicants_tbl WHERE applicants_id = $id");
 
-  	return $has_deleted;
+  	return $has_deleted; 
   }
 
 }

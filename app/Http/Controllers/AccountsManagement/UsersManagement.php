@@ -30,6 +30,7 @@ class UsersManagement extends Controller {
   public function store(Request $request){
     $un = $request->input('un');
     $pw = $request->input('pw');
+    $cp = $request->input('cp');
     $fn = $request->input('fn');
     $mn = $request->input('mn');
     $ln = $request->input('ln');
@@ -43,13 +44,18 @@ class UsersManagement extends Controller {
     if($un == "" || $pw == "" || $fn == "" || $mn == "" || $ln == "" || $em == "" || $pn == ""){
       $msg = "All field must not be empty!";
     }else{
-      $user = UsersManagementModel::createUser($un, $pw, $fn, $mn, $ln, $em, $pn);
+      if($pw == $cp){
+        $user = UsersManagementModel::createUser($un, $pw, $fn, $mn, $ln, $em, $pn);
 
-      if($user === true){
-        $msg  = "Successfully Created Account";
-        $code = 1;
+        if($user === true){
+          $msg  = "Successfully Created Account";
+          $code = 1;
+        }
+
+      }else{
+        $msg = "Password Confirmation doesn't match!";
       }
-
+      
     }
 
     $res = [

@@ -21,4 +21,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('getUsers', 'AccountsManagement\UsersManagement@getUsers');
 
 # Routes for all /profile
-Route::resource('profile', 'AccountsManagement\UsersManagement');
+Route::resource('profile', 'AccountsManagement\UsersManagement'); 
