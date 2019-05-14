@@ -24,10 +24,10 @@
 						<td>{{user.mobile}}</td>
 						<td>
 							<button class = "btn btn-primary" data-toggle="modal" data-target="#myProfile" v-on:click.prevent = "viewProfile(user.applicants_id)">
-								<span  class = "glyphicon glyphicon-eye-open"></span>
+								<span  class = "fa fa-eye fa-lg"></span>
 							</button>
 							<button class = "btn btn-danger"  v-on:click.prevent = "deleteAccount(user.applicants_id)">
-								<span  class = "glyphicon glyphicon-remove"></span>
+								<span  class = "fa fa-trash-alt fa-lg"></span>
 							</button>
 						</td>
 					</tr>

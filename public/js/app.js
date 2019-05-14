@@ -45469,11 +45469,7 @@ var render = function() {
                         }
                       }
                     },
-                    [
-                      _c("span", {
-                        staticClass: "glyphicon glyphicon-eye-open"
-                      })
-                    ]
+                    [_c("span", { staticClass: "fa fa-eye fa-lg" })]
                   ),
                   _vm._v(" "),
                   _c(
@@ -45487,7 +45483,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_c("span", { staticClass: "glyphicon glyphicon-remove" })]
+                    [_c("span", { staticClass: "fa fa-trash-alt fa-lg" })]
                   )
                 ])
               ])
