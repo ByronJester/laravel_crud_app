@@ -4,14 +4,12 @@ namespace App\Http\Controllers\AccountsManagement;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Providers\AccountsManagement\UsersManagementModel;
+use App\Models\AccountsManagement\UsersManagementModel;
 
 class UsersManagement extends Controller {
 
   public function index(){
-    $applicants = UsersManagementModel::getUsers();
-
-    return view('AccountsManagement/users', ['users' => $applicants]);
+    return view('AccountsManagement/users');
   }
 
   public function getUsers(){
@@ -25,7 +23,7 @@ class UsersManagement extends Controller {
     
     echo json_encode($user);
   }
-
+ 
 
   public function store(Request $request){
     $un = $request->input('un');

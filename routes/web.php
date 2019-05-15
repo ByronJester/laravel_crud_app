@@ -17,4 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
   
-Route::resource('profile', 'AccountsManagement\UsersManagement');
+// Route::resource('profile', 'AccountsManagement\UsersManagement');
+
+Route::get('profile', 'AccountsManagement\UsersManagement@index');

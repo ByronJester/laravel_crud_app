@@ -4,9 +4,16 @@ namespace App\Http\Controllers\AccountsManagement;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\AdminRepository;
+
 
 class AdminAccounts extends Controller
 {
+    protected $todo;
+
+    public function __construct(AdminRepository $todo){
+        $this->todo = $todo
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,7 @@ class AdminAccounts extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**

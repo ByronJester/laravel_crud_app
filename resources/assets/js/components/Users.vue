@@ -16,7 +16,7 @@
 			      <th>Email</th>
 			      <th>Mobile No.</th>
 			      <th>Action</th>
-					</tr>
+					</tr> 
 					<tr v-for= "user in users">
 						<td>@{{user.username}}</td>
 						<td>{{user.first_name}} {{user.middle_name}} {{user.last_name}}</td>

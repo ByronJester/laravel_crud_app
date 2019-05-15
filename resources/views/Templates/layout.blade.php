@@ -22,6 +22,8 @@
 	  background-color: #111;
 	  overflow-x: hidden;
 	  padding-top: 16px;
+	  margin-top: 3%;
+	  padding-top: 40px;
 	}
 
 	/* Style sidebar links */
@@ -55,7 +57,7 @@
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#">WebSiteName</a>
+	      <a class="navbar-brand" href="#">LaravelApp</a>
 	    </div>
 	  </div>
 	</nav>
@@ -64,10 +66,9 @@
 		<div class="row" >
 			<div class="col-md-2">
 				<div class="sidebar">
-				  <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
-				  <a href="#services"><i class="fa fa-fw fa-wrench"></i> Services</a>
-				  <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
-				  <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+					<a href="/profile"><i class="fas fa-users-cog fa-lg"></i> Home</a>
+					<a href="#"><i class="fa fa-fw fa-wrench"></i> Services</a>
+				  <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
 				</div>
 			</div>
 
