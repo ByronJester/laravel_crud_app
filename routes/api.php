@@ -23,5 +23,5 @@ Route::post('getUsers', 'AccountsManagement\UsersManagement@getUsers');
 # Routes for all /profile
 Route::resource('profile', 'AccountsManagement\UsersManagement');
 
-
-Route::resource('login', 'AccountsManagement\AdminAccounts');
+#Login User
+Route::post('login', 'AccountsManagement\AdminAccounts@login');

@@ -60,6 +60,9 @@
 	    <div class="navbar-header">
 	      <a class="navbar-brand" href="#">LaravelApp</a>
 	    </div>
+	    <ul class="nav navbar-nav navbar-right">
+	      <li><a href="/logout"><span class="fas fa-door-open"></span> Logout</a></li>
+	    </ul>
 	  </div>
 	</nav>
 

@@ -6,7 +6,7 @@
 					<h2>LOGIN ACCOUNT</h2>
 					<input type="text" class="form-control" v-model = "user.username" placeholder="Username" >
 					<input type="password" class="form-control" v-model = "user.password" placeholder="Password">
-					<input type="submit" class="form-control btn btn-primary" v-on:click.prevent = "getuser" value = "Login">
+					<input type="submit" class="form-control btn btn-primary" v-on:click.prevent = "login" value = "Login">
 				</div>
 				
 			</div>
@@ -36,7 +36,7 @@ export default {
 	
 	},
 	methods: {
-		getuser: function (){
+		login: function (){
 			var user_data = {
 				'un': this.user.username,
 				'pw': this.user.password
@@ -47,11 +47,32 @@ export default {
   			url: '/api/login',
   			data: user_data
   		}).then(response =>{
-  			console.log(response.data)
+  			if(response.data.code > 0){
+  				window.location = '/profile'
+  			}else{
+  				swal({
+					  title: 'Error!',
+					  type: 'warning', 
+					  html: `<b>${response.data.msg}</b>`,
+					  showCloseButton: true,
+					  showCancelButton: false,
+					  focusConfirm: false,
+					  confirmButtonText:'OKAY',
+					  cancelButtonText:'Cancel',
+					}).then(result =>{        
+					  
+					}, dismiss => {
+						
+					})
+  			}
   		}).catch(error => {
 
   		})
 
+		},
+
+		logout: function(){
+			
 		}
 	}
 }

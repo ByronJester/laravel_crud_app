@@ -16,10 +16,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
 #Login Page
 Route::get('login', 'AccountsManagement\AdminAccounts@index');
+
+#Logout Page
+Route::get('logout', 'AccountsManagement\AdminAccounts@logout');
+
 #Account Management Page
-// Route::resource('profile', 'AccountsManagement\UsersManagement');
 Route::get('profile', 'AccountsManagement\UsersManagement@index');
 
 

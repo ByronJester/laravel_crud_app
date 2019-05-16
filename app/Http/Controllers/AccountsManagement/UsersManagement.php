@@ -8,8 +8,12 @@ use App\Models\AccountsManagement\UsersManagementModel;
 
 class UsersManagement extends Controller {
 
-  public function index(){
-    return view('AccountsManagement/users');
+  public function index(Request $request){
+    if($request->session()->get('id') == ""){
+      return view('AccountsManagement/admin');
+    }else{
+      return view('AccountsManagement/users');
+    }
   }
 
   public function getUsers(){

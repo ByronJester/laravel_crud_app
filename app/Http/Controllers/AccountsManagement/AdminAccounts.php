@@ -11,46 +11,28 @@ class AdminAccounts extends Controller{
   protected $todo;
 
   public function __construct(AdminRepository $todo){
-      $this->todo = $todo;
+      $this->adminRepository = $todo;
   }
 
-  public function index(){
-    return view('AccountsManagement/admin');
-  }
-
-  public function create(){
-      
-  }
-
-  public function store(Request $request){
-    $res['code'] = 0;
-    $res['msg']  = "Incorrect Username or Password";
-
-    if(count($this->todo->loginUser($request)) > 0){
-      $res['code'] = 1;
-      $res['msg']  = "Successfully Login";
+  public function index(Request $request){
+    if($request->session()->get('id') == ""){
+      return view('AccountsManagement/admin');
+    }else{
+      return view('AccountsManagement/users');
     }
-
-    echo json_encode($res);
-
+    
   }
 
-
-  public function show($id){
-      //
+  public function login(Request $request){
+    return $this->adminRepository->loginUser($request);
   }
 
-  public function edit($id){
-      //
-  }
+  public function logout(Request $request){
+    $request->session()->forget('id');
 
-
-  public function update(Request $request, $id){
-      //
-  }
-
-
-  public function destroy($id){
-      //
-  }
+    if($request->session()->get('id') == ""){
+      return view('AccountsManagement/admin');
+    }
+    
+  } 
 }
