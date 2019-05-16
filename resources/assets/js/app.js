@@ -18,6 +18,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('users-list', require('./components/Users.vue'));
+Vue.component('admin-login', require('./components/Admins.vue'));
 
 const getUserInfo = new Vue({
     el: '#all-users'

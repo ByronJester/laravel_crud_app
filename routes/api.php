@@ -15,10 +15,13 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
+}); 
 
 # Retrieve Data
 Route::post('getUsers', 'AccountsManagement\UsersManagement@getUsers');
 
 # Routes for all /profile
 Route::resource('profile', 'AccountsManagement\UsersManagement');
+
+
+Route::resource('login', 'AccountsManagement\AdminAccounts');
